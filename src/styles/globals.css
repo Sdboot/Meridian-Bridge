@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cinzel:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-ivory text-charcoal font-sans;
+  overflow-x: hidden;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display tracking-tight;
+}
+
+h1 {
+  @apply text-6xl md:text-7xl font-bold;
+}
+
+h2 {
+  @apply text-5xl md:text-6xl font-bold;
+}
+
+h3 {
+  @apply text-4xl md:text-5xl font-semibold;
+}
+
+h4 {
+  @apply text-3xl md:text-4xl font-semibold;
+}
+
+h5 {
+  @apply text-2xl md:text-3xl font-medium;
+}
+
+h6 {
+  @apply text-xl md:text-2xl font-medium;
+}
+
+/* Links */
+a {
+  @apply text-teal-600 hover:text-teal-700 transition-colors duration-200;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-ivory;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gold-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gold-700;
+}
+
+/* Selection */
+::selection {
+  @apply bg-teal-600 text-ivory;
+}
+
+::-moz-selection {
+  @apply bg-teal-600 text-ivory;
+}
+
+/* Component Styles */
+.section-padding {
+  @apply px-4 md:px-8 lg:px-16 py-16 md:py-24 lg:py-32;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-teal-600 to-gold-600 bg-clip-text text-transparent;
+}
+
+.glass-effect {
+  @apply backdrop-blur-md bg-white/30 border border-white/20;
+}
+
+.luxury-shadow {
+  @apply shadow-lg-luxury hover:shadow-xl-luxury transition-shadow duration-300;
+}
+
+.gold-border-top {
+  @apply border-t-4 border-gold-600;
+}
+
+.gold-accent {
+  @apply text-gold-600;
+}
+
+.teal-accent {
+  @apply text-teal-600;
+}
+
+/* Animations */
+.animate-on-scroll {
+  @apply opacity-0 translate-y-10;
+}
+
+.animate-on-scroll.is-visible {
+  @apply opacity-100 translate-y-0 transition-all duration-700 ease-out;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-4xl;
+  }
+  h2 {
+    @apply text-3xl;
+  }
+  h3 {
+    @apply text-2xl;
+  }
+}
+
+/* Button States */
+.btn-primary {
+  @apply bg-teal-600 text-ivory hover:bg-teal-700 transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply bg-navy-700 text-ivory hover:bg-navy-800 transition-all duration-200;
+}
+
+.btn-gold {
+  @apply bg-gold-600 text-navy-700 hover:bg-gold-700 transition-all duration-200;
+}
+
+.btn-outline {
+  @apply border-2 border-teal-600 text-teal-600 hover:bg-teal-600 hover:text-ivory transition-all duration-200;
+}
+
+/* Form Styles */
+input, textarea, select {
+  @apply rounded-lg border border-gray-300 px-4 py-3 font-sans text-base focus:outline-none focus:ring-2 focus:ring-teal-600 focus:border-transparent transition-all duration-200;
+}
+
+input:disabled, textarea:disabled, select:disabled {
+  @apply bg-gray-100 cursor-not-allowed opacity-60;
+}
+
+/* Loading State */
+.loading-spinner {
+  @apply inline-block animate-spin;
+}
+
+/* Gradient Overlays */
+.gradient-overlay-dark {
+  @apply absolute inset-0 bg-gradient-to-t from-navy-700 via-transparent to-transparent;
+}
+
+.gradient-overlay-light {
+  @apply absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl-luxury hover:-translate-y-2;
+}
+
+/* Utility Classes */
+.clip-path-wave {
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.clip-path-diagonal {
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}
+
+/* Focus Visible */
+*:focus-visible {
+  @apply outline-none ring-2 ring-teal-600 ring-offset-2;
+}
+
+/* Print Styles */
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  
+  body {
+    @apply bg-white;
+  }
+}
