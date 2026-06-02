@@ -56,14 +56,21 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
         formData.append('serviceNeeded', data.serviceNeeded);
         formData.append('message', data.message);
 
+        console.log('Submitting to Formspree:', formspreeEndpoint);
         const response = await fetch(formspreeEndpoint, {
           method: 'POST',
           body: formData,
         });
 
+        console.log('Formspree response status:', response.status);
         if (!response.ok) {
-          throw new Error('Failed to submit form');
+          const errorText = await response.text();
+          console.error('Formspree error response:', errorText);
+          throw new Error(`Failed to submit form: ${response.status}`);
         }
+        
+        const responseData = await response.json();
+        console.log('Formspree response:', responseData);
       }
       
       reset();
