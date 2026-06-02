@@ -24,6 +24,8 @@ interface ContactFormProps {
 
 const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFormProps) => {
   const [internalLoading, setInternalLoading] = useState(false);
+  const [submissionError, setSubmissionError] = useState<string | null>(null);
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
   
   const {
     register,
@@ -37,46 +39,45 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
   const handleFormSubmit = async (data: ContactFormInputs) => {
     try {
       setInternalLoading(true);
+      setSubmissionError(null);
+      setSubmissionSuccess(false);
       
       if (onSubmit) {
         await onSubmit(data);
       } else {
-        // Default: Send to Formspree
-        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xdajqywd';
+        // Send to our API endpoint which forwards to Formspree
+        console.log('Submitting form data:', data);
         
-        if (!formspreeEndpoint) {
-          throw new Error('Formspree endpoint not configured.');
-        }
-        
-        const formData = new FormData();
-        formData.append('name', data.name);
-        formData.append('email', data.email);
-        formData.append('phone', data.phone);
-        formData.append('countryOfInterest', data.countryOfInterest);
-        formData.append('serviceNeeded', data.serviceNeeded);
-        formData.append('message', data.message);
-
-        console.log('Submitting to Formspree:', formspreeEndpoint);
-        const response = await fetch(formspreeEndpoint, {
+        const response = await fetch('/api/send-consultation', {
           method: 'POST',
-          body: formData,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
         });
 
-        console.log('Formspree response status:', response.status);
+        console.log('API response status:', response.status);
+        
         if (!response.ok) {
-          const errorText = await response.text();
-          console.error('Formspree error response:', errorText);
-          throw new Error(`Failed to submit form: ${response.status}`);
+          const errorData = await response.json().catch(() => ({}));
+          const errorMessage = errorData.error || `Failed to submit form: ${response.status}`;
+          console.error('API error:', errorMessage);
+          throw new Error(errorMessage);
         }
         
         const responseData = await response.json();
-        console.log('Formspree response:', responseData);
+        console.log('API response success:', responseData);
       }
       
+      setSubmissionSuccess(true);
       reset();
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmissionSuccess(false), 5000);
     } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred while submitting the form';
       console.error('Form submission error:', error);
-      throw error;
+      setSubmissionError(errorMessage);
     } finally {
       setInternalLoading(false);
     }
@@ -107,6 +108,19 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
 
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className="space-y-6">
+      {/* Success Message */}
+      {submissionSuccess && (
+        <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
+          <p className="text-green-700 font-semibold">✓ Form submitted successfully! We'll be in touch soon.</p>
+        </div>
+      )}
+
+      {/* Error Message */}
+      {submissionError && (
+        <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+          <p className="text-red-700 font-semibold">Error: {submissionError}</p>
+        </div>
+      )}
       {/* Name */}
       <div>
         <label htmlFor="name" className="block text-sm font-semibold mb-2 text-charcoal">
