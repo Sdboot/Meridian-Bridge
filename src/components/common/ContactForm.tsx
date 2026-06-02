@@ -138,8 +138,8 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
           type="tel"
           placeholder="+1 (555) 123-4567"
           {...register('phone')}
-          aria-invalid={errors.phone ? 'true' : 'false'}
-          
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
+        />
         {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>}
       </div>
 
