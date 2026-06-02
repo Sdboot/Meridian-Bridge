@@ -51,8 +51,8 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const result = await response.json();
-    console.log('Formspree success:', result);
+    // Don't assume JSON response from Formspree
+    console.log('Formspree success: Form accepted');
 
     return NextResponse.json(
       { success: true, message: 'Form submitted successfully' },
