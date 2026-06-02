@@ -108,7 +108,6 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
           type="text"
           placeholder="John Doe"
           {...register('name')}
-          aria-invalid={errors.name ? 'true' : 'false'}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
         />
         {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name.message}</p>}
@@ -124,7 +123,6 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
           type="email"
           placeholder="john@example.com"
           {...register('email')}
-          aria-invalid={errors.email ? 'true' : 'false'}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
         />
         {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>}
@@ -141,8 +139,7 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
           placeholder="+1 (555) 123-4567"
           {...register('phone')}
           aria-invalid={errors.phone ? 'true' : 'false'}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
-        />
+          
         {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>}
       </div>
 
@@ -154,7 +151,6 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
         <select
           id="countryOfInterest"
           {...register('countryOfInterest')}
-          aria-invalid={errors.countryOfInterest ? 'true' : 'false'}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
         >
           <option value="">Select a country</option>
@@ -177,7 +173,6 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
         <select
           id="serviceNeeded"
           {...register('serviceNeeded')}
-          aria-invalid={errors.serviceNeeded ? 'true' : 'false'}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
         >
           <option value="">Select a service</option>
@@ -202,7 +197,6 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
           placeholder="Tell us about your immigration goals..."
           rows={5}
           {...register('message')}
-          aria-invalid={errors.message ? 'true' : 'false'}
           className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600 resize-none"
         />
         {errors.message && <p className="text-red-600 text-sm mt-1">{errors.message.message}</p>}
