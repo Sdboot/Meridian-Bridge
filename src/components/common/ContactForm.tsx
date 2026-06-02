@@ -5,6 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Button from './Button';
 import { useState } from 'react';
+import { submitContactFormToFormspree } from '@/app/actions';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -42,24 +43,8 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
       setSubmissionError(null);
       setSubmissionSuccess(false);
 
-      // Create FormData for Formspree
-      const formData = new FormData();
-      formData.append('name', data.name);
-      formData.append('email', data.email);
-      formData.append('phone', data.phone);
-      formData.append('countryOfInterest', data.countryOfInterest);
-      formData.append('serviceNeeded', data.serviceNeeded);
-      formData.append('message', data.message);
-
-      // Submit directly to Formspree
-      const response = await fetch('https://formspree.io/f/xdajqywd', {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to submit form. Please try again.');
-      }
+      // Call server action to submit to Formspree
+      await submitContactFormToFormspree(data);
 
       setSubmissionSuccess(true);
       reset();
