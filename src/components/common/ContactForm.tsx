@@ -41,37 +41,29 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
       setInternalLoading(true);
       setSubmissionError(null);
       setSubmissionSuccess(false);
-      
-      if (onSubmit) {
-        await onSubmit(data);
-      } else {
-        // Send to our API endpoint which forwards to Formspree
-        console.log('Submitting form data:', data);
-        
-        const response = await fetch('/api/send-consultation', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        });
 
-        console.log('API response status:', response.status);
-        
-        if (!response.ok) {
-          const errorData = await response.json().catch(() => ({}));
-          const errorMessage = errorData.error || `Failed to submit form: ${response.status}`;
-          console.error('API error:', errorMessage);
-          throw new Error(errorMessage);
-        }
-        
-        const responseData = await response.json();
-        console.log('API response success:', responseData);
+      // Create FormData for Formspree
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('email', data.email);
+      formData.append('phone', data.phone);
+      formData.append('countryOfInterest', data.countryOfInterest);
+      formData.append('serviceNeeded', data.serviceNeeded);
+      formData.append('message', data.message);
+
+      // Submit directly to Formspree
+      const response = await fetch('https://formspree.io/f/xdajqywd', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to submit form. Please try again.');
       }
-      
+
       setSubmissionSuccess(true);
       reset();
-      
+
       // Clear success message after 5 seconds
       setTimeout(() => setSubmissionSuccess(false), 5000);
     } catch (error) {
