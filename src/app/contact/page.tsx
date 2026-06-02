@@ -5,29 +5,8 @@ import ContactForm from '@/components/common/ContactForm';
 import Card from '@/components/common/Card';
 import { CONTACT_INFO } from '@/constants';
 import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
-import { useState } from 'react';
 
 export default function ContactPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  const handleSubmit = async (_data: Record<string, unknown>) => {
-    setIsLoading(true);
-    setError(null);
-    
-    try {
-      // Form submission is handled by ContactForm component via Formspree
-      setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
-      setError(errorMessage);
-      console.error('Submission error:', err);
-    } finally {
-      setIsLoading(false);
-    }
-  };
 
   const contactMethods = [
     {
@@ -161,61 +140,11 @@ export default function ContactPage() {
               className="lg:col-span-2"
             >
               <Card className="p-8 md:p-12">
-                {isSubmitted ? (
-                  <div className="text-center py-12">
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="inline-block p-4 bg-green-50 rounded-full mb-4"
-                    >
-                      <svg
-                        className="w-12 h-12 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </motion.div>
-                    <h3 className="text-2xl font-semibold text-charcoal mb-2">
-                      Thank you for reaching out!
-                    </h3>
-                    <p className="text-gray-600 mb-6">
-                      We&apos;ve received your inquiry and will get back to you within 24 hours.
-                    </p>
-                    <button
-                      onClick={() => window.location.reload()}
-                      className="text-teal-600 hover:text-teal-700 font-semibold"
-                    >
-                      Send Another Message
-                    </button>
-                  </div>
-                ) : (
-                  <>
-                    <h2 className="text-3xl font-display font-bold mb-2">Send us a Message</h2>
-                    <p className="text-gray-600 mb-8">
-                      Fill out the form below and we&apos;ll respond promptly to your inquiry.
-                    </p>
-                    
-                    {/* Error Message */}
-                    {error && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
-                      >
-                        <p className="text-red-700 font-semibold">{error}</p>
-                      </motion.div>
-                    )}
-                    
-                    <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
-                  </>
-                )}
+                <h2 className="text-3xl font-display font-bold mb-2">Send us a Message</h2>
+                <p className="text-gray-600 mb-8">
+                  Fill out the form below and we&apos;ll respond promptly to your inquiry.
+                </p>
+                <ContactForm />
               </Card>
             </motion.div>
           </div>
