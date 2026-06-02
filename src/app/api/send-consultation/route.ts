@@ -16,13 +16,13 @@ export async function POST(request: NextRequest) {
     // Send to Formspree
     const formspreeEndpoint = 'https://formspree.io/f/xdajqywd';
     
-    const formData = new FormData();
-    formData.append('name', name);
-    formData.append('email', email);
-    formData.append('phone', phone);
-    formData.append('countryOfInterest', countryOfInterest);
-    formData.append('serviceNeeded', serviceNeeded);
-    formData.append('message', message);
+    const params = new URLSearchParams();
+    params.append('name', name);
+    params.append('email', email);
+    params.append('phone', phone);
+    params.append('countryOfInterest', countryOfInterest);
+    params.append('serviceNeeded', serviceNeeded);
+    params.append('message', message);
 
     console.log('Sending to Formspree:', {
       name,
@@ -34,7 +34,10 @@ export async function POST(request: NextRequest) {
 
     const response = await fetch(formspreeEndpoint, {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: params.toString(),
     });
 
     console.log('Formspree response status:', response.status);
