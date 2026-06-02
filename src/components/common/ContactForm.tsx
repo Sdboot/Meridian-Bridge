@@ -42,25 +42,23 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
         await onSubmit(data);
       } else {
         // Default: Send to Formspree
-        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xykvrblq';
+        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xdajqywd';
         
         if (!formspreeEndpoint) {
           throw new Error('Formspree endpoint not configured.');
         }
         
+        const formData = new FormData();
+        formData.append('name', data.name);
+        formData.append('email', data.email);
+        formData.append('phone', data.phone);
+        formData.append('countryOfInterest', data.countryOfInterest);
+        formData.append('serviceNeeded', data.serviceNeeded);
+        formData.append('message', data.message);
+
         const response = await fetch(formspreeEndpoint, {
           method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            phone: data.phone,
-            countryOfInterest: data.countryOfInterest,
-            serviceNeeded: data.serviceNeeded,
-            message: data.message,
-          }),
+          body: formData,
         });
 
         if (!response.ok) {
