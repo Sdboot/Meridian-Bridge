@@ -9,12 +9,36 @@ import { useState } from 'react';
 
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (data: Record<string, unknown>) => {
-    // Simulate form submission
-    console.log('Form submitted:', data);
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
+    setIsLoading(true);
+    setError(null);
+    
+    try {
+      const response = await fetch('/api/send-consultation', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to submit consultation request');
+      }
+
+      setIsSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      setError(errorMessage);
+      console.error('Submission error:', err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactMethods = [
@@ -189,7 +213,19 @@ export default function ContactPage() {
                     <p className="text-gray-600 mb-8">
                       Fill out the form below and we&apos;ll respond promptly to your inquiry.
                     </p>
-                    <ContactForm onSubmit={handleSubmit} />
+                    
+                    {/* Error Message */}
+                    {error && (
+                      <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg"
+                      >
+                        <p className="text-red-700 font-semibold">{error}</p>
+                      </motion.div>
+                    )}
+                    
+                    <ContactForm onSubmit={handleSubmit} isLoading={isLoading} />
                   </>
                 )}
               </Card>
