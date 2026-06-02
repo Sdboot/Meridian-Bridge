@@ -53,7 +53,13 @@ const Button = ({
 
   if (href) {
     return (
-      <Link href={href} className={buttonClass} aria-label={ariaLabel}>
+      <Link 
+        href={href} 
+        className={buttonClass} 
+        aria-label={ariaLabel}
+        target={target}
+        rel={rel}
+      >
         {children}
       </Link>
     );
@@ -65,8 +71,6 @@ const Button = ({
       type={type}
       disabled={disabled}
       className={buttonClass}
-      target={target}
-      rel={rel}
       aria-label={ariaLabel}
     >
       {children}

@@ -189,5 +189,5 @@ export const SEO = {
     'permanent residency',
     'immigration services',
     'global opportunities',
-  ],
+  ] as string[],
 } as const;

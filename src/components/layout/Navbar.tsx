@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { NAVIGATION_ITEMS } from '@/constants';
+import { NavItem } from '@/types';
 import Button from '@/components/common/Button';
 
 const Navbar = () => {
@@ -73,13 +74,13 @@ const Navbar = () => {
                   }`}
                 >
                   <span>{item.label}</span>
-                  {item.submenu && <ChevronDown size={16} />}
+                  {'submenu' in item && <ChevronDown size={16} />}
                 </Link>
 
                 {/* Dropdown */}
-                {item.submenu && (
+                {'submenu' in item && (
                   <div className="absolute left-0 mt-0 w-48 bg-navy-700 rounded-lg shadow-lg-luxury opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all">
-                    {item.submenu.map((subitem) => (
+                    {(item.submenu as unknown as NavItem[]).map((subitem) => (
                       <Link
                         key={subitem.label}
                         href={subitem.href}
@@ -123,7 +124,7 @@ const Navbar = () => {
                   className="w-full flex items-center justify-between px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
                 >
                   <span>{item.label}</span>
-                  {item.submenu && (
+                  {'submenu' in item && (
                     <ChevronDown
                       size={16}
                       className={`transition-transform ${
@@ -133,9 +134,9 @@ const Navbar = () => {
                   )}
                 </button>
 
-                {item.submenu && openDropdown === item.label && (
+                {'submenu' in item && openDropdown === item.label && (
                   <div className="ml-4 space-y-2 mt-2">
-                    {item.submenu.map((subitem) => (
+                    {(item.submenu as unknown as NavItem[]).map((subitem) => (
                       <Link
                         key={subitem.label}
                         href={subitem.href}
