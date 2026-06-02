@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import SectionTitle from '@/components/common/SectionTitle';
 import FAQAccordion from '@/components/common/FAQAccordion';
 import { FAQ } from '@/types';
 

@@ -28,7 +28,7 @@ const ConsultationCTA = () => {
           </h2>
 
           <p className="text-xl text-gray-200 mb-8">
-            Book a consultation with our experts today. We'll assess your goals and create a customized immigration plan tailored to your needs.
+            Book a consultation with our experts today. We&apos;ll assess your goals and create a customized immigration plan tailored to your needs.
           </p>
 
           <motion.div

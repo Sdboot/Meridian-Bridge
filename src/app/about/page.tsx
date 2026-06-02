@@ -92,7 +92,7 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl font-display font-bold mb-6">Our Mission</h2>
               <p className="text-lg text-gray-700 mb-6">
-                To empower individuals and families worldwide by providing expert guidance and comprehensive support for their international mobility journey, enabling them to access premium education, meaningful employment, and permanent residency opportunities in the world's leading destinations.
+                To empower individuals and families worldwide by providing expert guidance and comprehensive support for their international mobility journey, enabling them to access premium education, meaningful employment, and permanent residency opportunities in the world&apos;s leading destinations.
               </p>
               <p className="text-lg text-gray-700">
                 We believe every person has the potential to build a better future across borders. Our mission is to remove barriers and create pathways to success.
@@ -107,10 +107,10 @@ export default function AboutPage() {
             >
               <h2 className="text-4xl font-display font-bold mb-6">Our Vision</h2>
               <p className="text-lg text-gray-700 mb-6">
-                To become the world's most trusted immigration consulting company, recognized for our excellence, integrity, and unwavering commitment to client success. We envision a world where global opportunities are accessible to deserving individuals regardless of their background.
+                To become the world&apos;s most trusted immigration consulting company, recognized for our excellence, integrity, and unwavering commitment to client success. We envision a world where global opportunities are accessible to deserving individuals regardless of their background.
               </p>
               <p className="text-lg text-gray-700">
-                Through innovation and expertise, we're building bridges between aspirations and achievements.
+                Through innovation and expertise, we&apos;re building bridges between aspirations and achievements.
               </p>
             </motion.div>
           </div>
@@ -213,7 +213,7 @@ export default function AboutPage() {
               Operating in <span className="text-gold-600">15+ Countries</span>
             </h2>
             <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
-              With offices and partnerships across major immigration destinations, we're always close to our clients.
+              With offices and partnerships across major immigration destinations, we&apos;re always close to our clients.
             </p>
 
             <motion.div

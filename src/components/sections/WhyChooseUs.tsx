@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Card from '@/components/common/Card';
-import SectionTitle from '@/components/common/SectionTitle';
 import { CheckCircle, Globe, Zap, Award } from 'lucide-react';
 
 const WhyChooseUs = () => {

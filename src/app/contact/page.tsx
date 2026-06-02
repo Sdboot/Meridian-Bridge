@@ -10,7 +10,7 @@ import { useState } from 'react';
 export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: Record<string, unknown>) => {
     // Simulate form submission
     console.log('Form submitted:', data);
     setIsSubmitted(true);
@@ -64,7 +64,7 @@ export default function ContactPage() {
               Contact <span className="text-gold-600">MERIDIAN BRIDGE</span>
             </h1>
             <p className="text-xl text-gray-200">
-              We're here to answer your questions and guide you to your next opportunity
+              We&apos;re here to answer your questions and guide you to your next opportunity
             </p>
           </motion.div>
         </div>
@@ -174,7 +174,7 @@ export default function ContactPage() {
                       Thank you for reaching out!
                     </h3>
                     <p className="text-gray-600 mb-6">
-                      We've received your inquiry and will get back to you within 24 hours.
+                      We&apos;ve received your inquiry and will get back to you within 24 hours.
                     </p>
                     <button
                       onClick={() => window.location.reload()}
@@ -187,7 +187,7 @@ export default function ContactPage() {
                   <>
                     <h2 className="text-3xl font-display font-bold mb-2">Send us a Message</h2>
                     <p className="text-gray-600 mb-8">
-                      Fill out the form below and we'll respond promptly to your inquiry.
+                      Fill out the form below and we&apos;ll respond promptly to your inquiry.
                     </p>
                     <ContactForm onSubmit={handleSubmit} />
                   </>

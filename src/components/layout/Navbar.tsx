@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
-import { NAVIGATION_ITEMS, BRAND_COLORS } from '@/constants';
+import { NAVIGATION_ITEMS } from '@/constants';
 import Button from '@/components/common/Button';
 
 const Navbar = () => {

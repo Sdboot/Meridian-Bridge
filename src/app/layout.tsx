@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { DefaultSeo } from 'next-seo';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import '@/styles/globals.css';
