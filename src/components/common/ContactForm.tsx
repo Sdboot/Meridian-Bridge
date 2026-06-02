@@ -42,10 +42,10 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
         await onSubmit(data);
       } else {
         // Default: Send to Formspree
-        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xykvrblq';
         
         if (!formspreeEndpoint) {
-          throw new Error('Formspree endpoint not configured. Please set NEXT_PUBLIC_FORMSPREE_ENDPOINT in .env.local');
+          throw new Error('Formspree endpoint not configured.');
         }
         
         const response = await fetch(formspreeEndpoint, {
