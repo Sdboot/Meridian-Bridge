@@ -12,24 +12,12 @@ export default function ContactPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = async (data: Record<string, unknown>) => {
+  const handleSubmit = async (_data: Record<string, unknown>) => {
     setIsLoading(true);
     setError(null);
     
     try {
-      const response = await fetch('/api/send-consultation', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to submit consultation request');
-      }
-
+      // Form submission is handled by ContactForm component via Formspree
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (err) {

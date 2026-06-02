@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import Button from './Button';
+import { useState } from 'react';
 
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -21,7 +22,9 @@ interface ContactFormProps {
   isLoading?: boolean;
 }
 
-const ContactForm = ({ onSubmit, isLoading = false }: ContactFormProps) => {
+const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFormProps) => {
+  const [internalLoading, setInternalLoading] = useState(false);
+  
   const {
     register,
     handleSubmit,
@@ -33,14 +36,48 @@ const ContactForm = ({ onSubmit, isLoading = false }: ContactFormProps) => {
 
   const handleFormSubmit = async (data: ContactFormInputs) => {
     try {
+      setInternalLoading(true);
+      
       if (onSubmit) {
         await onSubmit(data);
+      } else {
+        // Default: Send to Formspree
+        const formspreeEndpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
+        
+        if (!formspreeEndpoint) {
+          throw new Error('Formspree endpoint not configured. Please set NEXT_PUBLIC_FORMSPREE_ENDPOINT in .env.local');
+        }
+        
+        const response = await fetch(formspreeEndpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: data.name,
+            email: data.email,
+            phone: data.phone,
+            countryOfInterest: data.countryOfInterest,
+            serviceNeeded: data.serviceNeeded,
+            message: data.message,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to submit form');
+        }
       }
+      
       reset();
     } catch (error) {
       console.error('Form submission error:', error);
+      throw error;
+    } finally {
+      setInternalLoading(false);
     }
   };
+
+  const isLoading = externalLoading || internalLoading;
 
   const countries = [
     'Canada',
