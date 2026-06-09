@@ -26,22 +26,6 @@ export default function StudyAbroadScholarshipsPage() {
     ],
     courses: [
       {
-        title: 'Master\'s Program Mastery',
-        description: 'Complete guide to securing admission to top-tier Master\'s programs globally',
-        price: 4999,
-        originalPrice: 7999,
-        duration: '12 weeks',
-        rating: 4.9,
-      },
-      {
-        title: 'Scholarship Secrets Unveiled',
-        description: 'Find and secure scholarships worth $10,000+ for your studies abroad',
-        price: 2999,
-        originalPrice: 4999,
-        duration: '8 weeks',
-        rating: 4.85,
-      },
-      {
         title: 'Scholarships | Funding Blueprint Session',
         description: 'This session is designed for students seeking fully or partially funded Master\'s or PhD programs, applicants struggling to identify relevant scholarships, candidates unsure how competitive their profile is for funding, individuals planning to study abroad but constrained by finances, researchers exploring grants and assistantships, and professionals considering funded academic programs.',
         price: 50000,
