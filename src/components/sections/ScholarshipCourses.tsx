@@ -190,7 +190,7 @@ export default function ScholarshipCourses() {
 
                 {/* Modules */}
                 <div className="mb-6">
-                  <p className="text-sm font-semibold text-charcoal mb-3">What You'll Learn:</p>
+                  <p className="text-sm font-semibold text-charcoal mb-3">What You&apos;ll Learn:</p>
                   <ul className="space-y-2">
                     {course.modules.slice(0, 3).map((module, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
@@ -257,7 +257,7 @@ export default function ScholarshipCourses() {
         >
           <h2 className="text-4xl font-bold mb-4">Ready to Transform Your Future?</h2>
           <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-            Join thousands of successful students who've achieved their scholarship and admission goals with our expert-led courses.
+            Join thousands of successful students who&apos;ve achieved their scholarship and admission goals with our expert-led courses.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <button className="bg-gold-600 text-navy-900 font-bold px-8 py-3 rounded-lg hover:bg-gold-500 transition-all">
