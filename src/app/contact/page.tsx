@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import ContactForm from '@/components/common/ContactForm';
 import Card from '@/components/common/Card';
 import { CONTACT_INFO } from '@/constants';
-import { Mail, Phone, MapPin, Clock, MessageCircle } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 
 export default function ContactPage() {
 
@@ -15,27 +15,6 @@ export default function ContactPage() {
       value: CONTACT_INFO.email,
       action: `mailto:${CONTACT_INFO.email}`,
       actionText: 'Send Email',
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      value: CONTACT_INFO.phone,
-      action: `tel:${CONTACT_INFO.phone}`,
-      actionText: 'Call Now',
-    },
-    {
-      icon: MessageCircle,
-      title: 'WhatsApp',
-      value: CONTACT_INFO.whatsapp,
-      action: `https://wa.me/${CONTACT_INFO.whatsapp.replace(/\D/g, '')}`,
-      actionText: 'Chat on WhatsApp',
-    },
-    {
-      icon: MapPin,
-      title: 'Office',
-      value: CONTACT_INFO.address,
-      action: '#',
-      actionText: 'Get Directions',
     },
   ];
 
@@ -111,25 +90,6 @@ export default function ContactPage() {
                   </motion.div>
                 );
               })}
-
-              {/* Business Hours */}
-              <Card variant="dark" className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="p-3 bg-gold-600 rounded-lg flex-shrink-0">
-                    <Clock size={24} className="text-navy-700" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-ivory mb-2">Business Hours</h3>
-                    <p className="text-gray-300 text-sm">
-                      Monday - Friday: 9:00 AM - 6:00 PM
-                      <br />
-                      Saturday: 10:00 AM - 4:00 PM
-                      <br />
-                      Sunday: Closed
-                    </p>
-                  </div>
-                </div>
-              </Card>
             </motion.div>
 
             {/* Contact Form */}

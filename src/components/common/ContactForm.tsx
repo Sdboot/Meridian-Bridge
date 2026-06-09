@@ -10,8 +10,6 @@ import { submitContactFormToFormspree } from '@/app/actions';
 const contactFormSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Please enter a valid email'),
-  phone: z.string().min(10, 'Phone must be at least 10 characters'),
-  countryOfInterest: z.string().min(1, 'Please select a country'),
   serviceNeeded: z.string().min(1, 'Please select a service'),
   preferredDate: z.string().min(1, 'Please select a preferred date'),
   preferredTime: z.string().min(1, 'Please select a preferred time'),
@@ -62,16 +60,6 @@ const ContactForm = ({ isLoading: externalLoading = false }: ContactFormProps) =
   };
 
   const isLoading = externalLoading || internalLoading;
-
-  const countries = [
-    'Canada',
-    'United Kingdom',
-    'Australia',
-    'United States',
-    'Germany',
-    'Ireland',
-    'New Zealand',
-  ];
 
   const services = [
     'Study Abroad',
@@ -129,42 +117,7 @@ const ContactForm = ({ isLoading: externalLoading = false }: ContactFormProps) =
         {errors.email && <p className="text-red-600 text-sm mt-1">{errors.email.message}</p>}
       </div>
 
-      {/* Phone */}
-      <div>
-        <label htmlFor="phone" className="block text-sm font-semibold mb-2 text-charcoal">
-          Phone Number *
-        </label>
-        <input
-          id="phone"
-          type="tel"
-          placeholder="+1 (555) 123-4567"
-          {...register('phone')}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
-        />
-        {errors.phone && <p className="text-red-600 text-sm mt-1">{errors.phone.message}</p>}
-      </div>
 
-      {/* Country of Interest */}
-      <div>
-        <label htmlFor="countryOfInterest" className="block text-sm font-semibold mb-2 text-charcoal">
-          Country of Interest *
-        </label>
-        <select
-          id="countryOfInterest"
-          {...register('countryOfInterest')}
-          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
-        >
-          <option value="">Select a country</option>
-          {countries.map((country) => (
-            <option key={country} value={country}>
-              {country}
-            </option>
-          ))}
-        </select>
-        {errors.countryOfInterest && (
-          <p className="text-red-600 text-sm mt-1">{errors.countryOfInterest.message}</p>
-        )}
-      </div>
 
       {/* Service Needed */}
       <div>
