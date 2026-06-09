@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Instagram, Twitter } from 'lucide-react';
+import { Mail, Phone, Instagram, Twitter } from 'lucide-react';
 import TikTokIcon from '@/components/icons/TikTokIcon';
 import { CONTACT_INFO, NAVIGATION_ITEMS, SOCIAL_MEDIA } from '@/constants';
 
@@ -124,10 +124,6 @@ const Footer = () => {
                 <Phone size={20} className="flex-shrink-0 mt-1" />
                 <span>{CONTACT_INFO.phone}</span>
               </a>
-              <div className="flex items-start space-x-3">
-                <MapPin size={20} className="flex-shrink-0 mt-1" />
-                <span>{CONTACT_INFO.address}</span>
-              </div>
             </div>
           </div>
         </div>

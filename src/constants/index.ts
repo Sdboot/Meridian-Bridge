@@ -145,7 +145,7 @@ export const STATISTICS = [
 // Contact Info
 export const CONTACT_INFO = {
   email: 'bridgemeridiangaps@gmail.com',
-  phone: '+1 (555) 123-4567',
+  phone: '07034410866',
   address: '123 Global Avenue, International District, NY 10001',
   whatsapp: '+1-555-123-4567',
 } as const;
