@@ -62,8 +62,7 @@ export default function ScholarshipConsultation() {
         <SectionTitle
           title="Scholarships & Advanced Degrees"
           subtitle="Master's and PhD Programs with Full Support"
-          align="center"
-          light
+          centered={true}
         />
 
         {/* Benefits Grid */}
