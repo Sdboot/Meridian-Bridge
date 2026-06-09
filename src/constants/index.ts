@@ -17,6 +17,7 @@ export const NAVIGATION_ITEMS = [
     label: 'Services',
     href: '/services',
     submenu: [
+      { label: 'Study Abroad & Scholarships', href: '/services/study-abroad-scholarships' },
       { label: 'Work Visa Processing', href: '/services/work-visa' },
       { label: 'Permanent Residency', href: '/services/permanent-residency' },
       { label: 'Business Immigration', href: '/services/business-immigration' },
@@ -42,6 +43,12 @@ export const NAVIGATION_ITEMS = [
 
 // Services
 export const SERVICES = [
+  {
+    id: 'study-abroad-scholarships',
+    title: 'Study Abroad & Scholarships',
+    description: 'Access premier educational institutions and scholarship opportunities worldwide',
+    icon: 'BookOpen',
+  },
   {
     id: 'work-visa',
     title: 'Work Visa Processing',
