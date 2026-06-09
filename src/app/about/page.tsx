@@ -213,7 +213,7 @@ export default function AboutPage() {
               Operating in <span className="text-gold-600">15+ Countries</span>
             </h2>
             <p className="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
-              With offices and partnerships across major immigration destinations, we&apos;re always close to our clients.
+              With partnerships across major immigration destinations, we&apos;re committed to supporting your success globally.
             </p>
 
             <motion.div
