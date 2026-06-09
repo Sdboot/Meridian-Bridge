@@ -21,7 +21,6 @@ export const NAVIGATION_ITEMS = [
       { label: 'Student Visas', href: '/services/student-visas' },
       { label: 'Work Visa Processing', href: '/services/work-visa' },
       { label: 'Permanent Residency', href: '/services/permanent-residency' },
-      { label: 'Family Sponsorship', href: '/services/family-sponsorship' },
       { label: 'Business Immigration', href: '/services/business-immigration' },
       { label: 'Skilled Migration', href: '/services/skilled-migration' },
       { label: 'Scholarships & Advanced Degrees', href: '/services/scholarships-advanced-degrees' },
@@ -71,12 +70,6 @@ export const SERVICES = [
     icon: 'Home',
   },
   {
-    id: 'family-sponsorship',
-    title: 'Family Sponsorship',
-    description: 'Reunite with loved ones abroad',
-    icon: 'Users',
-  },
-  {
     id: 'business-immigration',
     title: 'Business Immigration',
     description: 'Expand your business globally',
@@ -93,12 +86,6 @@ export const SERVICES = [
     title: 'Travel Advisory',
     description: 'Comprehensive travel planning support',
     icon: 'Plane',
-  },
-  {
-    id: 'settlement-support',
-    title: 'Settlement Support',
-    description: 'Seamless integration in new countries',
-    icon: 'MapPin',
   },
   {
     id: 'scholarships-advanced-degrees',
