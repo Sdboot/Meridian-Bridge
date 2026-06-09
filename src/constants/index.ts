@@ -24,6 +24,7 @@ export const NAVIGATION_ITEMS = [
       { label: 'Family Sponsorship', href: '/services/family-sponsorship' },
       { label: 'Business Immigration', href: '/services/business-immigration' },
       { label: 'Skilled Migration', href: '/services/skilled-migration' },
+      { label: 'Scholarships & Advanced Degrees', href: '/services/scholarships-advanced-degrees' },
     ],
   },
   {
@@ -98,6 +99,12 @@ export const SERVICES = [
     title: 'Settlement Support',
     description: 'Seamless integration in new countries',
     icon: 'MapPin',
+  },
+  {
+    id: 'scholarships-advanced-degrees',
+    title: 'Scholarships & Advanced Degrees',
+    description: 'Master\'s and PhD programs with scholarship guidance',
+    icon: 'BookOpen',
   },
 ] as const;
 

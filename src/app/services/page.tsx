@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import SectionTitle from '@/components/common/SectionTitle';
 import Card from '@/components/common/Card';
 import Button from '@/components/common/Button';
+import ScholarshipConsultation from '@/components/sections/ScholarshipConsultation';
 import { SERVICES } from '@/constants';
 import * as Icons from 'lucide-react';
 
@@ -144,6 +145,9 @@ export default function ServicesPage() {
           </motion.div>
         </div>
       </section>
+
+      {/* Scholarship Consultation Section */}
+      <ScholarshipConsultation />
 
       {/* CTA */}
       <section className="section-padding bg-gradient-luxury">
