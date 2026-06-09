@@ -7,9 +7,9 @@ export async function submitContactFormToFormspree(data: ContactFormInputs) {
     const formData = new FormData();
     formData.append('name', data.name);
     formData.append('email', data.email);
-    formData.append('phone', data.phone);
-    formData.append('countryOfInterest', data.countryOfInterest);
     formData.append('serviceNeeded', data.serviceNeeded);
+    formData.append('preferredDate', data.preferredDate);
+    formData.append('preferredTime', data.preferredTime);
     formData.append('message', data.message);
 
     const response = await fetch('https://formspree.io/f/xdajqywd', {
