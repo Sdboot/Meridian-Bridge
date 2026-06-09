@@ -41,6 +41,14 @@ export default function StudyAbroadScholarshipsPage() {
         duration: '8 weeks',
         rating: 4.85,
       },
+      {
+        title: 'Scholarships | Funding Blueprint Session',
+        description: 'This session is designed for students seeking fully or partially funded Master\'s or PhD programs, applicants struggling to identify relevant scholarships, candidates unsure how competitive their profile is for funding, individuals planning to study abroad but constrained by finances, researchers exploring grants and assistantships, and professionals considering funded academic programs.',
+        price: 50000,
+        originalPrice: 80000,
+        duration: '1 session',
+        rating: 4.9,
+      },
     ],
   };
 

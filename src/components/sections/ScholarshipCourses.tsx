@@ -96,6 +96,25 @@ export default function ScholarshipCourses() {
         'Full practice exams',
       ],
     },
+    {
+      id: 'course-5',
+      title: 'Scholarships | Funding Blueprint Session',
+      description: 'Comprehensive session on securing fully or partially funded Master\'s and PhD programs',
+      price: 50000,
+      originalPrice: 80000,
+      duration: '1 session',
+      students: 1240,
+      rating: 4.9,
+      icon: <Award className="w-6 h-6" />,
+      modules: [
+        'Scholarship identification strategies',
+        'Profile competitiveness assessment',
+        'Funding source exploration',
+        'Application optimization',
+        'Interview preparation for scholarships',
+        'Financial planning for studies',
+      ],
+    },
   ];
 
   return (
