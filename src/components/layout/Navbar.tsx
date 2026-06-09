@@ -117,40 +117,50 @@ const Navbar = () => {
           <div className="lg:hidden pb-6 space-y-4">
             {NAVIGATION_ITEMS.map((item) => (
               <div key={item.label}>
-                <button
-                  onClick={() =>
-                    setOpenDropdown(openDropdown === item.label ? null : item.label)
-                  }
-                  className="w-full flex items-center justify-between px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
-                >
-                  <span>{item.label}</span>
-                  {'submenu' in item && (
-                    <ChevronDown
-                      size={16}
-                      className={`transition-transform ${
-                        openDropdown === item.label ? 'rotate-180' : ''
-                      }`}
-                    />
-                  )}
-                </button>
+                {'submenu' in item ? (
+                  <>
+                    <button
+                      onClick={() =>
+                        setOpenDropdown(openDropdown === item.label ? null : item.label)
+                      }
+                      className="w-full flex items-center justify-between px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
+                    >
+                      <span>{item.label}</span>
+                      <ChevronDown
+                        size={16}
+                        className={`transition-transform ${
+                          openDropdown === item.label ? 'rotate-180' : ''
+                        }`}
+                      />
+                    </button>
 
-                {'submenu' in item && openDropdown === item.label && (
-                  <div className="ml-4 space-y-2 mt-2">
-                    {(item.submenu as unknown as NavItem[]).map((subitem) => (
-                      <Link
-                        key={subitem.label}
-                        href={subitem.href}
-                        className="block px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {subitem.label}
-                      </Link>
-                    ))}
-                  </div>
+                    {openDropdown === item.label && (
+                      <div className="ml-4 space-y-2 mt-2">
+                        {(item.submenu as unknown as NavItem[]).map((subitem) => (
+                          <Link
+                            key={subitem.label}
+                            href={subitem.href}
+                            className="block px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
+                            onClick={() => setIsOpen(false)}
+                          >
+                            {subitem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className="block px-4 py-2 text-charcoal hover:bg-gray-100 rounded-lg transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
                 )}
               </div>
             ))}
-            <Button href="/contact" variant="gold" size="md" className="w-full">
+            <Button href="/contact" variant="gold" size="md" className="w-full" onClick={() => setIsOpen(false)}>
               Book a Session
             </Button>
           </div>
