@@ -31,7 +31,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div>
-              <div className="relative w-14 h-14 mb-4">
+              <div className="relative w-14 h-14 mb-4 rounded-lg overflow-hidden">
                 <Image
                   src="/logo.png"
                   alt="MERIDIAN BRIDGE"

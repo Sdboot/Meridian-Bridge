@@ -33,7 +33,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group transition-opacity hover:opacity-80">
             {/* Logo Image */}
-            <div className="relative w-12 h-12 flex-shrink-0">
+            <div className="relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden">
               <Image
                 src="/logo.png"
                 alt="MERIDIAN BRIDGE"
