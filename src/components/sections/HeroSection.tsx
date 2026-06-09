@@ -82,7 +82,7 @@ const HeroSection = () => {
           {/* CTA Buttons */}
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
             <Button href="/contact" variant="gold" size="lg" className="inline-flex items-center space-x-2">
-              <span>Book Consultation</span>
+              <span>Book a Session</span>
               <ArrowRight size={20} />
             </Button>
             <Button href="/services" variant="outline" size="lg">

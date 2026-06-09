@@ -98,7 +98,7 @@ const Navbar = () => {
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <Button href="/contact" variant="gold" size="md">
-              Book Consultation
+              Book a Session
             </Button>
           </div>
 
@@ -151,7 +151,7 @@ const Navbar = () => {
               </div>
             ))}
             <Button href="/contact" variant="gold" size="md" className="w-full">
-              Book Consultation
+              Book a Session
             </Button>
           </div>
         )}

@@ -13,6 +13,8 @@ const contactFormSchema = z.object({
   phone: z.string().min(10, 'Phone must be at least 10 characters'),
   countryOfInterest: z.string().min(1, 'Please select a country'),
   serviceNeeded: z.string().min(1, 'Please select a service'),
+  preferredDate: z.string().min(1, 'Please select a preferred date'),
+  preferredTime: z.string().min(1, 'Please select a preferred time'),
   message: z.string().min(10, 'Message must be at least 10 characters'),
 });
 
@@ -186,6 +188,34 @@ const ContactForm = ({ isLoading: externalLoading = false }: ContactFormProps) =
         )}
       </div>
 
+      {/* Preferred Date */}
+      <div>
+        <label htmlFor="preferredDate" className="block text-sm font-semibold mb-2 text-charcoal">
+          Preferred Session Date *
+        </label>
+        <input
+          id="preferredDate"
+          type="date"
+          {...register('preferredDate')}
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
+        />
+        {errors.preferredDate && <p className="text-red-600 text-sm mt-1">{errors.preferredDate.message}</p>}
+      </div>
+
+      {/* Preferred Time */}
+      <div>
+        <label htmlFor="preferredTime" className="block text-sm font-semibold mb-2 text-charcoal">
+          Preferred Session Time *
+        </label>
+        <input
+          id="preferredTime"
+          type="time"
+          {...register('preferredTime')}
+          className="w-full rounded-lg border border-gray-300 px-4 py-3 font-sans focus:outline-none focus:ring-2 focus:ring-teal-600"
+        />
+        {errors.preferredTime && <p className="text-red-600 text-sm mt-1">{errors.preferredTime.message}</p>}
+      </div>
+
       {/* Message */}
       <div>
         <label htmlFor="message" className="block text-sm font-semibold mb-2 text-charcoal">
@@ -209,7 +239,7 @@ const ContactForm = ({ isLoading: externalLoading = false }: ContactFormProps) =
         className="w-full"
         ariaLabel="Submit consultation form"
       >
-        {isLoading ? 'Submitting...' : 'Book Consultation'}
+        {isLoading ? 'Submitting...' : 'Book a Session'}
       </Button>
     </form>
   );
