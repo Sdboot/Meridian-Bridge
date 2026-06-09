@@ -235,9 +235,14 @@ export default function ScholarshipCourses() {
                 </div>
 
                 {/* CTA */}
-                <button className="w-full bg-gradient-to-r from-gold-600 to-goldBronze-600 text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all group/btn">
-                  Enroll Now
-                </button>
+                <a
+                  href="https://selar.com/4b2dl75u41?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASLmBZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAafLb7bSA4-2rhqfCHGaENkSPPmd49KSwqTKRCAY5rfB3DeB8HnwKzkE0pIt-w_aem_E3o_VAGINcElKti1WEZk2A"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full bg-gradient-to-r from-gold-600 to-goldBronze-600 text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all text-center group/btn"
+                >
+                  Book Now
+                </a>
               </div>
             </motion.div>
           ))}
