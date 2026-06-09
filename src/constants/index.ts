@@ -17,13 +17,10 @@ export const NAVIGATION_ITEMS = [
     label: 'Services',
     href: '/services',
     submenu: [
-      { label: 'Study Abroad', href: '/services/study-abroad' },
-      { label: 'Student Visas', href: '/services/student-visas' },
       { label: 'Work Visa Processing', href: '/services/work-visa' },
       { label: 'Permanent Residency', href: '/services/permanent-residency' },
       { label: 'Business Immigration', href: '/services/business-immigration' },
       { label: 'Skilled Migration', href: '/services/skilled-migration' },
-      { label: 'Scholarships & Advanced Degrees', href: '/services/scholarships-advanced-degrees' },
     ],
   },
   {
@@ -45,18 +42,6 @@ export const NAVIGATION_ITEMS = [
 
 // Services
 export const SERVICES = [
-  {
-    id: 'study-abroad',
-    title: 'Study Abroad',
-    description: 'Access premier educational institutions worldwide',
-    icon: 'BookOpen',
-  },
-  {
-    id: 'student-visas',
-    title: 'Student Visa Assistance',
-    description: 'Expert guidance through visa applications',
-    icon: 'FileCheck',
-  },
   {
     id: 'work-visa',
     title: 'Work Visa Processing',
@@ -86,12 +71,6 @@ export const SERVICES = [
     title: 'Travel Advisory',
     description: 'Comprehensive travel planning support',
     icon: 'Plane',
-  },
-  {
-    id: 'scholarships-advanced-degrees',
-    title: 'Scholarships & Advanced Degrees',
-    description: 'Master\'s and PhD programs with scholarship guidance',
-    icon: 'BookOpen',
   },
 ] as const;
 
