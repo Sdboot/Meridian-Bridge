@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import ContactForm from '@/components/common/ContactForm';
 import Card from '@/components/common/Card';
 import { CONTACT_INFO } from '@/constants';
-import { Mail, MapPin } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function ContactPage() {
 
@@ -111,44 +111,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Map Section */}
-      <section className="section-padding bg-navy-700">
-        <div className="container-max">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="text-5xl font-display font-bold text-ivory mb-3">
-              Our <span className="text-gold-600">Offices</span>
-            </h2>
-            <p className="text-xl text-gray-300">
-              Visit us at our headquarters for in-person consultations
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-gradient-luxury rounded-xl overflow-hidden h-80"
-          >
-            {/* Map placeholder - Replace with actual Google Maps embed */}
-            <div className="w-full h-full flex items-center justify-center">
-              <div className="text-center text-ivory">
-                <MapPin size={48} className="mx-auto mb-4 text-gold-600" />
-                <p className="text-lg font-semibold mb-2">MERIDIAN BRIDGE Headquarters</p>
-                <p className="text-gray-300">{CONTACT_INFO.address}</p>
-                <p className="text-gray-400 text-sm mt-2">
-                  [Google Maps integration coming soon]
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* FAQ CTA */}
       <section className="section-padding bg-gradient-luxury">
         <div className="container-max text-center text-ivory">
@@ -161,16 +123,11 @@ export default function ContactPage() {
               Have <span className="text-gold-600">Questions?</span>
             </h2>
             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Check out our frequently asked questions or browse our resources section.
+              Check out our frequently asked questions for quick answers.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <a href="/resources" className="text-ivory hover:text-gold-600 font-semibold">
-                View Resources →
-              </a>
-              <a href="/#faq" className="text-ivory hover:text-gold-600 font-semibold">
-                Go to FAQ →
-              </a>
-            </div>
+            <a href="/faq" className="inline-block px-8 py-3 bg-gold-600 text-navy-700 font-semibold rounded-lg hover:bg-gold-700 transition-colors">
+              View FAQs →
+            </a>
           </motion.div>
         </div>
       </section>

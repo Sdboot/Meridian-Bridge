@@ -38,7 +38,6 @@ export const NAVIGATION_ITEMS = [
     ],
   },
   { label: 'Resources', href: '/resources' },
-  { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
 ] as const;
 
