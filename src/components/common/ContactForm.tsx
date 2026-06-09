@@ -19,11 +19,10 @@ const contactFormSchema = z.object({
 export type ContactFormInputs = z.infer<typeof contactFormSchema>;
 
 interface ContactFormProps {
-  onSubmit?: (data: ContactFormInputs) => Promise<void>;
   isLoading?: boolean;
 }
 
-const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFormProps) => {
+const ContactForm = ({ isLoading: externalLoading = false }: ContactFormProps) => {
   const [internalLoading, setInternalLoading] = useState(false);
   const [submissionError, setSubmissionError] = useState<string | null>(null);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
@@ -88,7 +87,7 @@ const ContactForm = ({ onSubmit, isLoading: externalLoading = false }: ContactFo
       {/* Success Message */}
       {submissionSuccess && (
         <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
-          <p className="text-green-700 font-semibold">✓ Form submitted successfully! We'll be in touch soon.</p>
+          <p className="text-green-700 font-semibold">✓ Form submitted successfully! We&apos;ll be in touch soon.</p>
         </div>
       )}
 
