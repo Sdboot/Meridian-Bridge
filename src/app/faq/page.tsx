@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import FAQAccordion from '@/components/common/FAQAccordion';
-import SectionTitle from '@/components/common/SectionTitle';
 import Button from '@/components/common/Button';
 import { FAQ } from '@/types';
 
