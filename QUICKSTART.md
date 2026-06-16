@@ -117,8 +117,8 @@ npx prettier --write .   # Format all files
 - Travel Advisory
 - Settlement Support
 
-✅ **7 Destination Countries**
-- Canada, UK, Australia, USA, Germany, Ireland, New Zealand
+✅ **9 Destination Countries**
+- Canada, Australia, Germany, Ireland, New Zealand, Netherlands, Spain, France, Italy
 
 ✅ **Interactive Components**
 - Sticky navigation with mega menu

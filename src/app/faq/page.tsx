@@ -88,7 +88,7 @@ export default function FAQPage() {
       id: '12',
       question: 'Do you offer services for all countries?',
       answer:
-        'We specialize in major destination countries including Canada, UK, Australia, USA, Germany, Ireland, and New Zealand. We also have expertise with several other countries. Contact us to confirm if we serve your desired destination.',
+        'We specialize in major destination countries including Canada, Australia, Germany, Ireland, New Zealand, Netherlands, Spain, France, and Italy. We also have expertise with several other countries. Contact us to confirm if we serve your desired destination.',
       category: 'Services',
     },
   ];

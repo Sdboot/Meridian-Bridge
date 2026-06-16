@@ -211,7 +211,7 @@ export default function AboutPage() {
               viewport={{ once: true }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center max-w-2xl mx-auto mb-12"
             >
-              {['Canada', 'UK', 'Australia', 'USA', 'Germany', 'Ireland', 'New Zealand', 'Singapore'].map(
+              {['Canada', 'Australia', 'Germany', 'Ireland', 'New Zealand', 'Netherlands', 'Spain', 'France', 'Italy'].map(
                 (country) => (
                   <div key={country} className="p-4 bg-navy-700/50 rounded-lg backdrop-blur">
                     <p className="font-semibold">{country}</p>

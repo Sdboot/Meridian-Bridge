@@ -98,7 +98,7 @@ src/
 - Home
 - About
 - Services (Study Abroad, Visas, Permanent Residency, etc.)
-- Destinations (Canada, UK, Australia, USA, Germany, Ireland, NZ)
+- Destinations (Canada, Australia, Germany, Ireland, NZ, Netherlands, Spain, France, Italy)
 - Resources (Guides, Blog, FAQs)
 - Contact (Forms, WhatsApp, Email)
 
