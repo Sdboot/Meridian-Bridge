@@ -1,103 +1,121 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Card from '@/components/common/Card';
 import Button from '@/components/common/Button';
-import { Search, Calendar, BookOpen } from 'lucide-react';
+import { Search, BookOpen, Award, CheckCircle } from 'lucide-react';
 import { useState } from 'react';
+
+interface Resource {
+  id: string;
+  title: string;
+  description: string;
+  rating: number;
+  students: number;
+  modules: string[];
+  icon: React.ReactNode;
+}
 
 export default function ResourcesPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const resources = [
+  const resources: Resource[] = [
     {
-      id: 1,
+      id: 'resource-1',
       title: 'Master\'s Program Mastery',
       description: 'Complete guide to securing admission to top-tier Master\'s programs globally',
-      type: 'course',
-      country: 'Global',
-      date: '2024-05-15',
-      icon: BookOpen,
+      rating: 4.9,
+      students: 2340,
+      icon: <BookOpen className="w-6 h-6" />,
+      modules: [
+        'University selection strategy',
+        'Personal statement crafting',
+        'Application timeline planning',
+        'Interview preparation',
+        'Financial planning & budgeting',
+        'Post-admission steps',
+      ],
     },
     {
-      id: 2,
+      id: 'resource-2',
       title: 'PhD Journey Blueprint',
       description: 'Expert strategies for PhD program admission and scholarship funding',
-      type: 'course',
-      country: 'Global',
-      date: '2024-05-10',
-      icon: BookOpen,
+      rating: 4.95,
+      students: 1890,
+      icon: <Award className="w-6 h-6" />,
+      modules: [
+        'Research proposal development',
+        'PhD program evaluation',
+        'Advisor-student relationship',
+        'Funding sources & grant writing',
+        'Visa & immigration for PhD',
+        'Career planning post-PhD',
+      ],
     },
     {
-      id: 3,
+      id: 'resource-3',
       title: 'Scholarship Secrets Unveiled',
       description: 'Find and secure scholarships worth $10,000+ for your studies abroad',
-      type: 'course',
-      country: 'Global',
-      date: '2024-05-05',
-      icon: BookOpen,
+      rating: 4.85,
+      students: 3450,
+      icon: <Award className="w-6 h-6" />,
+      modules: [
+        'Scholarship database navigation',
+        'Eligibility assessment',
+        'Application optimization',
+        'Essay writing for scholarships',
+        'Interview techniques',
+        'Negotiation strategies',
+      ],
     },
     {
-      id: 4,
+      id: 'resource-4',
       title: 'IELTS/TOEFL Mastery',
       description: 'Comprehensive test preparation for international university admissions',
-      type: 'course',
-      country: 'Global',
-      date: '2024-04-28',
-      icon: BookOpen,
+      rating: 4.8,
+      students: 5620,
+      icon: <BookOpen className="w-6 h-6" />,
+      modules: [
+        'Test structure & scoring',
+        'Reading strategies',
+        'Writing excellence',
+        'Speaking confidence',
+        'Listening mastery',
+        'Full practice exams',
+      ],
     },
     {
-      id: 5,
+      id: 'resource-5',
       title: 'Scholarships | Funding Blueprint Session',
       description: 'Comprehensive session on securing fully or partially funded Master\'s and PhD programs',
-      type: 'course',
-      country: 'Global',
-      date: '2024-04-20',
-      icon: BookOpen,
+      rating: 4.9,
+      students: 1240,
+      icon: <Award className="w-6 h-6" />,
+      modules: [
+        'Scholarship identification strategies',
+        'Profile competitiveness assessment',
+        'Funding source exploration',
+        'Application optimization',
+        'Interview preparation for scholarships',
+        'Financial planning for studies',
+      ],
     },
     {
-      id: 6,
+      id: 'resource-6',
       title: 'Study Abroad Comprehensive Preparation',
       description: 'Complete preparation guide for students planning to study abroad',
-      type: 'course',
-      country: 'Global',
-      date: '2024-04-15',
-      icon: BookOpen,
+      rating: 4.88,
+      students: 2950,
+      icon: <BookOpen className="w-6 h-6" />,
+      modules: [
+        'Country selection guide',
+        'University comparison tools',
+        'Visa requirements overview',
+        'Financial planning',
+        'Preparation timeline',
+        'Success tips from alumni',
+      ],
     },
   ];
-
-  const blogs = [
-    {
-      id: 1,
-      title: 'Top 5 Countries for International Students in 2024',
-      excerpt: 'Discover the best destinations for higher education with expert insights...',
-      category: 'Education',
-      date: '2024-05-18',
-      readTime: 5,
-    },
-    {
-      id: 2,
-      title: 'How to Prepare for Your Visa Interview',
-      excerpt: 'Expert tips and common questions to help you ace your visa interview...',
-      category: 'Visa Tips',
-      date: '2024-05-15',
-      readTime: 7,
-    },
-    {
-      id: 3,
-      title: 'Permanent Residency vs Work Visas: Which is Right for You?',
-      excerpt: 'Understand the differences and choose the right pathway for your goals...',
-      category: 'Immigration',
-      date: '2024-05-12',
-      readTime: 8,
-    },
-  ];
-
-  const filteredResources = resources.filter(
-    (resource) =>
-      resource.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      resource.country.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <>
@@ -133,7 +151,7 @@ export default function ResourcesPage() {
               <Search className="absolute left-4 top-4 text-gray-400" size={24} />
               <input
                 type="text"
-                placeholder="Search guides, templates, countries..."
+                placeholder="Search resources..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 text-lg rounded-lg border-2 border-gray-300 focus:border-teal-600 focus:outline-none transition-colors"
@@ -143,124 +161,86 @@ export default function ResourcesPage() {
         </div>
       </section>
 
-      {/* Resources Grid */}
+      {/* Resources Grid - Course Style */}
       <section className="section-padding bg-ivory">
         <div className="container-max">
-          <h2 className="text-4xl font-display font-bold mb-2 text-charcoal">
-            {filteredResources.length} {filteredResources.length === 1 ? 'Resource' : 'Resources'} Found
-          </h2>
-          <p className="text-gray-600 mb-8">Essential tools and guides for your immigration journey</p>
-
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-2 gap-8"
           >
-            {filteredResources.map((resource, index) => {
-              const Icon = resource.icon;
-              return (
-                <motion.div
-                  key={resource.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                >
-                  <Card hover border className="p-8 h-full flex flex-col">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="p-3 bg-gradient-luxury rounded-lg">
-                        <Icon size={24} className="text-gold-600" />
-                      </div>
-                      <span className="text-xs font-semibold text-teal-600 bg-teal-50 px-3 py-1 rounded-full">
-                        {resource.type}
-                      </span>
-                    </div>
-
-                    <h3 className="text-xl font-semibold font-display mb-3 flex-grow">
-                      {resource.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm mb-4">{resource.description}</p>
-
-                    <div className="flex items-center justify-between text-xs text-gray-500 border-t border-gray-200 pt-4">
-                      <span>{resource.country}</span>
-                      <span>{new Date(resource.date).toLocaleDateString()}</span>
-                    </div>
-
-                    <Button href="#" variant="outline" size="sm" className="w-full mt-4">
-                      Download
-                    </Button>
-                  </Card>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Blog Section */}
-      <section className="section-padding bg-navy-700">
-        <div className="container-max">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="text-gold-600 font-semibold uppercase tracking-widest mb-3">
-              Latest Insights
-            </p>
-            <h2 className="text-5xl font-display font-bold text-ivory">
-              Immigration <span className="text-gold-600">Blog</span>
-            </h2>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {blogs.map((blog, index) => (
+            {resources.map((resource, index) => (
               <motion.div
-                key={blog.id}
+                key={resource.id}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
+                className="bg-white border-2 border-gray-200 rounded-lg overflow-hidden hover:border-gold-600 transition-all hover:shadow-xl group"
               >
-                <Card variant="dark" className="p-8 h-full flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-semibold text-gold-600">{blog.category}</span>
-                    <span className="text-sm text-gray-400">{blog.readTime} min read</span>
+                {/* Header */}
+                <div className="bg-gradient-to-r from-navy-600 to-teal-600 p-6 text-ivory">
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="text-gold-400">{resource.icon}</div>
+                    <div className="flex gap-1">
+                      {[...Array(5)].map((_, i) => (
+                        <span key={i} className="text-gold-400">★</span>
+                      ))}
+                    </div>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">{resource.title}</h3>
+                  <p className="text-gray-200 text-sm">{resource.description}</p>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  {/* Stats */}
+                  <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-gray-200">
+                    <div>
+                      <p className="text-gray-500 text-xs uppercase font-semibold">Students</p>
+                      <p className="text-charcoal font-semibold">{resource.students.toLocaleString()}+</p>
+                    </div>
+                    <div>
+                      <p className="text-gray-500 text-xs uppercase font-semibold">Rating</p>
+                      <p className="text-charcoal font-semibold">{resource.rating}/5</p>
+                    </div>
                   </div>
 
-                  <h3 className="text-xl font-semibold font-display text-ivory mb-3 flex-grow">
-                    {blog.title}
-                  </h3>
-
-                  <p className="text-gray-300 text-sm mb-6">{blog.excerpt}</p>
-
-                  <div className="flex items-center justify-between text-xs text-gray-400 border-t border-gray-700 pt-4">
-                    <span className="flex items-center space-x-2">
-                      <Calendar size={16} />
-                      <span>{new Date(blog.date).toLocaleDateString()}</span>
-                    </span>
+                  {/* Modules */}
+                  <div className="mb-6">
+                    <p className="text-sm font-semibold text-charcoal mb-3">What You&apos;ll Learn:</p>
+                    <ul className="space-y-2">
+                      {resource.modules.slice(0, 3).map((module, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-sm text-gray-700">
+                          <CheckCircle size={16} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                          <span>{module}</span>
+                        </li>
+                      ))}
+                      {resource.modules.length > 3 && (
+                        <li className="text-sm text-gray-500 font-semibold">+ {resource.modules.length - 3} more modules</li>
+                      )}
+                    </ul>
                   </div>
 
-                  <Button href="#" variant="outline" size="sm" className="w-full mt-4">
-                    Read Article
-                  </Button>
-                </Card>
+                  {/* CTA */}
+                  <a
+                    href="https://selar.com/4b2dl75u41?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASLmBZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA01NjcwNjczNDMzNTI0MjcAAafLb7bSA4-2rhqfCHGaENkSPPmd49KSwqTKRCAY5rfB3DeB8HnwKzkE0pIt-w_aem_E3o_VAGINcElKti1WEZk2A"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full bg-gradient-to-r from-gold-600 to-goldBronze-600 text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all text-center group/btn"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* FAQ CTA */}
-      <section className="section-padding bg-gradient-luxury">
+      {/* CTA Section */}
+      <section className="section-padding bg-gradient-to-r from-navy-600 to-teal-600">
         <div className="container-max text-center text-ivory">
           <motion.div
             initial={{ opacity: 0 }}
@@ -268,13 +248,13 @@ export default function ResourcesPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl font-display font-bold mb-6">
-              Still Have <span className="text-gold-600">Questions?</span>
+              Ready to <span className="text-gold-600">Transform Your Future?</span>
             </h2>
             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Contact our expert team for personalized guidance tailored to your specific needs.
+              Join thousands of successful students who've achieved their scholarship and admission goals with our expert-led resources.
             </p>
             <Button href="/contact" variant="gold" size="lg">
-              Get Expert Help
+              Schedule Free Consultation
             </Button>
           </motion.div>
         </div>
