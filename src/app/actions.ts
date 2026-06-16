@@ -27,8 +27,8 @@ export async function submitContactFormToFormspree(data: ContactFormInputs) {
       throw new Error(`Formspree error: ${response.status} ${response.statusText}`);
     }
 
-    const responseData = await response.json();
-    console.log('Form submitted successfully:', responseData);
+    // Formspree returns a success response, don't try to parse it as JSON
+    console.log('Form submitted successfully to Formspree');
     return { success: true };
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
