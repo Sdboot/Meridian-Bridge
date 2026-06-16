@@ -30,33 +30,6 @@ export default function AboutPage() {
     },
   ];
 
-  const teamMembers = [
-    {
-      name: 'Rajesh Sharma',
-      role: 'Founder & CEO',
-      specialization: 'Immigration Law',
-      bio: '20+ years of experience in international mobility and immigration consulting',
-    },
-    {
-      name: 'Dr. Emily Chen',
-      role: 'Head of Services',
-      specialization: 'Education Consultancy',
-      bio: 'Expert in student visa pathways and educational placement',
-    },
-    {
-      name: 'Marcus Johnson',
-      role: 'Head of Operations',
-      specialization: 'Work Visas',
-      bio: 'Specialist in skilled migration and employment-based immigration',
-    },
-    {
-      name: 'Sofia Rodriguez',
-      role: 'Settlement Support Lead',
-      specialization: 'Integration Programs',
-      bio: 'Dedicated to ensuring smooth transitions and successful settlement',
-    },
-  ];
-
   return (
     <>
       {/* Hero Section */}
@@ -159,41 +132,57 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Leadership Team */}
+      {/* Expert Team Section */}
       <section className="section-padding bg-ivory">
         <div className="container-max">
           <SectionTitle
-            subtitle="Meet The Team"
-            title="Our Leadership"
-            description="Experienced professionals dedicated to your success"
+            subtitle="Our Expertise"
+            title="PhD Holders & Post-Graduate Professionals"
+            description="Distinguished expertise and academic excellence at every level"
             centered={true}
           />
 
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16"
+            className="max-w-3xl mx-auto mt-16"
           >
-            {teamMembers.map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                <Card hover className="overflow-hidden h-full">
-                  <div className="bg-gradient-luxury h-40"></div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold font-display mb-1">{member.name}</h3>
-                    <p className="text-teal-600 font-semibold mb-2">{member.role}</p>
-                    <p className="text-sm text-gold-600 mb-3">{member.specialization}</p>
-                    <p className="text-gray-600 text-sm">{member.bio}</p>
-                  </div>
-                </Card>
-              </motion.div>
-            ))}
+            <Card hover className="p-12 bg-white border-2 border-gold-600/20">
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-2xl font-semibold font-display text-navy-900 mb-4 flex items-center gap-3">
+                    <span className="text-gold-600 text-3xl">●</span>
+                    Credential Excellence
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    Our team comprises PhD holders and post-graduate professionals with advanced qualifications in immigration law, international relations, education policy, and migration studies. Each team member brings rigorous academic training combined with extensive practical experience in global immigration consulting.
+                  </p>
+                </div>
+
+                <div className="h-px bg-gradient-to-r from-gold-600/0 via-gold-600/50 to-gold-600/0"></div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold font-display text-navy-900 mb-4 flex items-center gap-3">
+                    <span className="text-gold-600 text-3xl">●</span>
+                    Building Our Dream Team
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    We are actively seeking to expand our exceptional team and are open to integrating experienced immigration lawyers and specialized consultants. If you are a qualified immigration attorney or consultant with a passion for transforming lives through global mobility solutions, we would welcome the opportunity to collaborate with you.
+                  </p>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-semibold font-display text-navy-900 mb-4 flex items-center gap-3">
+                    <span className="text-gold-600 text-3xl">●</span>
+                    Our Commitment
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed text-lg">
+                    We maintain the highest standards of professional integrity, continuous learning, and client-centered excellence. Our multidisciplinary approach ensures comprehensive solutions tailored to each client&apos;s unique immigration objectives.
+                  </p>
+                </div>
+              </div>
+            </Card>
           </motion.div>
         </div>
       </section>
