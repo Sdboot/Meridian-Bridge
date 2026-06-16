@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Card from '@/components/common/Card';
 import Button from '@/components/common/Button';
-import { Search, Calendar, FileText, BookOpen } from 'lucide-react';
+import { Search, BookOpen } from 'lucide-react';
 import { useState } from 'react';
 
 export default function ResourcesPage() {
