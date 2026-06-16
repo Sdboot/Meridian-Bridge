@@ -251,7 +251,7 @@ export default function ResourcesPage() {
               Ready to <span className="text-gold-600">Transform Your Future?</span>
             </h2>
             <p className="text-xl text-gray-200 mb-8 max-w-2xl mx-auto">
-              Join thousands of successful students who've achieved their scholarship and admission goals with our expert-led resources.
+              Join thousands of successful students who&apos;ve achieved their scholarship and admission goals with our expert-led resources.
             </p>
             <Button href="/contact" variant="gold" size="lg">
               Schedule Free Consultation
