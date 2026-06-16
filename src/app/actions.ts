@@ -18,12 +18,21 @@ export async function submitContactFormToFormspree(data: ContactFormInputs) {
     });
 
     if (!response.ok) {
-      throw new Error(`Formspree error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('Formspree error response:', {
+        status: response.status,
+        statusText: response.statusText,
+        body: errorText,
+      });
+      throw new Error(`Formspree error: ${response.status} ${response.statusText}`);
     }
 
+    const responseData = await response.json();
+    console.log('Form submitted successfully:', responseData);
     return { success: true };
   } catch (error) {
-    console.error('Server action error:', error);
-    throw new Error('Failed to submit form. Please try again.');
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    console.error('Server action error:', errorMessage, error);
+    throw new Error(`Failed to submit form: ${errorMessage}`);
   }
 }
