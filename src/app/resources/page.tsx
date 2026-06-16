@@ -13,6 +13,7 @@ interface Resource {
   students: number;
   modules: string[];
   icon: React.ReactNode;
+  link?: string;
 }
 
 export default function ResourcesPage() {
@@ -21,19 +22,20 @@ export default function ResourcesPage() {
   const resources: Resource[] = [
     {
       id: 'resource-1',
-      title: 'Master\'s Program Mastery',
-      description: 'Complete guide to securing admission to top-tier Master\'s programs globally',
-      rating: 4.9,
-      students: 2340,
+      title: 'Career Transition Session',
+      description: 'Focused 1:1 strategy call to help you transition into international job markets with a clear, realistic pathway',
+      rating: 4.95,
+      students: 1520,
       icon: <BookOpen className="w-6 h-6" />,
       modules: [
-        'University selection strategy',
-        'Personal statement crafting',
-        'Application timeline planning',
-        'Interview preparation',
-        'Financial planning & budgeting',
-        'Post-admission steps',
+        'Which countries match your profile',
+        'Job opportunities aligned with your background',
+        'CV rework strategies for international employers',
+        'Skills gap analysis and global competitiveness',
+        'Entry routes: graduate schemes, skilled worker visas, internships',
+        'Long-term global career progression strategy',
       ],
+      link: 'https://selar.com/7379v91811?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASLmFdleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaetRH2AnLcSAigvkGYZgUof0SNO7-GM-jIDUS3hKHVF3OMjvmmvA_I4ROD6Lw_aem_z0YKZ-sbWFWMLXJUlVQK6g',
     },
     {
       id: 'resource-2',
@@ -225,7 +227,7 @@ export default function ResourcesPage() {
 
                   {/* CTA */}
                   <a
-                    href="https://selar.com/4b2dl75u41?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASLmBZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA01NjcwNjczNDMzNTI0MjcAAafLb7bSA4-2rhqfCHGaENkSPPmd49KSwqTKRCAY5rfB3DeB8HnwKzkE0pIt-w_aem_E3o_VAGINcElKti1WEZk2A"
+                    href={resource.link || "https://selar.com/4b2dl75u41?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAb21jcASLmBZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA01NjcwNjczNDMzNTI0MjcAAafLb7bSA4-2rhqfCHGaENkSPPmd49KSwqTKRCAY5rfB3DeB8HnwKzkE0pIt-w_aem_E3o_VAGINcElKti1WEZk2A"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="block w-full bg-gradient-to-r from-gold-600 to-goldBronze-600 text-white font-semibold py-3 rounded-lg hover:shadow-lg transition-all text-center group/btn"
